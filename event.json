@@ -1,0 +1,9 @@
+{ "type": "event",
+	"name":"Example Party",
+	"description":"A random party!",
+	"content": {
+		"_file":"event.ical",
+		"type": "text/calendar",
+		"url":"http://example.com/event.ics"
+	}
+}
