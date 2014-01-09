@@ -41,7 +41,7 @@ content of the hash, other than a few required key/values (see below), is arbitr
 
 ### Required Key/Value Elements ###
 
-Three key/value pairs are proposed as being *required* by the standard: **type**, [ **content** _or_ **content-url** ], and **JSONSCAN**. 
+Three key/value pairs are proposed as being *required* by the standard: **type**, [ **content** _or_ **content-url** _or_ **src-url** ], and **JSONSCAN**. 
 
 - **JSONSCAN** should have a value set which corresponds to the version of the standard the data uses, e.g. "1.0".
 
@@ -51,6 +51,8 @@ Three key/value pairs are proposed as being *required* by the standard: **type**
 
 - **content-url** is an alternate for **content**.  In this case, the value should be a URL which will access the content for the this object.  This will likely be a useful feature, given the small
 storage capacity of most barcode formats.
+
+- **src-url** is similar to _content-url_, except the contents from the remote URL must be a valid JSONSCAN json object.  If this is the case, this fetched structure is used instead.  The "local" and "remote" _type_ values must be identical, but the JSONSCAN version may be different.
 
 
 Parsing Logic Proposal
@@ -73,7 +75,9 @@ Parsing Logic Proposal
 
 2. Can both _content_ and _content-url_ be presented?  If so, which is favorable? If connectivity fails, fall back to local?  Use local as a "preview" until remote content is retrieved?
 
-3. Security, security, security.
+3. In the case of _src-url_, will src-url "chaining" be allowed (fetched json contains another src-url)?  Should there be domain restrictions?  etc!
+
+4. Security, security, security.
 
 
 Examples
