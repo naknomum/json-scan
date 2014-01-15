@@ -1,1 +1,6 @@
-{"type":"image","name":"Photo","description":"A photo I took","content-url":"http://example.com/photo.jpg","preview":"file:small.png"}
+{
+	"type":"image",
+	"name":"The globe of Saturn",
+	"url":"http://www.jpl.nasa.gov/spaceimages/details.php?id=PIA17175",
+	"content-url":"http://photojournal.jpl.nasa.gov/jpeg/PIA17175.jpg"
+}

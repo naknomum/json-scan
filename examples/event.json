@@ -2,8 +2,7 @@
 	"name":"Example Party",
 	"description":"A random party!",
 	"content": {
-		"_file":"event.ical",
-		"type": "text/calendar",
-		"url":"http://example.com/event.ics"
+		"_file":"examples/event.ical",
+		"type": "text/calendar"
 	}
 }

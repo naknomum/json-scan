@@ -1,0 +1,6 @@
+{ "type": "event",
+	"name":"Example Party",
+	"description":"A random party!",
+	"content-type": "text/calendar",
+	"content-url": "https://raw.github.com/naknomum/json-scan/master/examples/event.ical"
+}
