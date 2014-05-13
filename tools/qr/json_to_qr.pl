@@ -1,5 +1,12 @@
 #!/usr/bin/perl
 
+
+#will convert JSON hash on STDIN into QR code on STDOUT
+
+#note: if a key of '_file' is encountered, value should be filepath, will return hash with keys "data" and "type".
+###### this is very alpha feature, use at own risk!  TODO
+
+
 ##### others:
 ##### http://search.cpan.org/~mstrat/Barcode-DataMatrix-0.04/lib/Barcode/DataMatrix.pm
 
@@ -11,7 +18,8 @@ use MIME::Base64;
 
 $version = "0.1";
 
-$compress = 0;  #meh, compression never seems to save much
+#considered an optional compressed format but never saved much and seemed overcomplicated.  dropped!  (for now?)
+$compress = 0;
 
 my $in = join('',<>);
 my $data = from_json($in);

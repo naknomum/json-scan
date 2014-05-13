@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+#quick n dirty way to convert binary blob on STDIN to a QR code on STDOUT (in theory?)
+
 use JSON;
 use Data::Dumper;
 
