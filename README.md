@@ -90,7 +90,9 @@ Example Data
 ![event](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/event.png)
 
 * examples/[event-contenturl.json](https://raw.githubusercontent.com/naknomum/json-scan/master/examples/event-contenturl.json) - same event, JSON-scan content retrieved via URL
-![event-contenturl](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/event-contenturl.png)
+![event-contenturl as QR Code](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/event-contenturl.png)
+
+![event-contenturl as DataMatrix barcode](https://raw.githubusercontent.com/naknomum/json-scan/master/images/datamatrix/event-contenturl.png)
 
 * examples/[github-social.json](https://raw.githubusercontent.com/naknomum/json-scan/master/examples/github-social.json) - "social" info GitHub (facebook, g+, url, etc.)
 ![github-social](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/github-social.png)
@@ -105,4 +107,6 @@ Example Software
 * **tools/qr/bin_to_qr.pl** - tiny perl utility which takes arbitrary data on stdin and creates QR code on stdout
 
 * **tools/qr/json_to_qr.pl** - perl utility which takes JSON on stdin and creates QR code on stdout
+
+* **tools/qr/json_to_datamatrix.pl** - perl utility which takes JSON on stdin and creates DataMatrix code on stdout
 
