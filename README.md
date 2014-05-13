@@ -30,13 +30,13 @@ In practice, however, barcodes such as [QR Codes](http://en.wikipedia.org/wiki/Q
 products, or printed materials often yield uninteresting results, often amounting to little more than a redirect to a generic website.
 
 **JSON-scan** is a proposal to create an optional data structure within barcode data which can lead to a more flexible and rich experience when a barcode is scanned.  It does so by allowing any tools
-which implement the standard to *route* the user to different behaviors or external apps based primarily upon the "**type**" and "**content**" of the data.
+which implement the standard to *route* the user to different behaviors or external "helper" apps based primarily upon the "**type**" and "**content**" of the data.
 
 
 Details of Data Structure
 -------------------------
 
-The format of the data structure is a JSON hash/object.  Within this hash, any valid JSON is allowed, provided it is encodable by (and fits in) the enveloping barcode format.  The exact
+The format of the data structure is a JSON hash/object.  Within this hash, any valid JSON is allowed, provided it is encodable by (and fits into) the container barcode format.  The exact
 content of the hash, other than a few required key/values (see below), is arbitrary and can be tailored as needed by usage or application.
 
 ### Required Key/Value Elements ###
@@ -60,7 +60,7 @@ Parsing Logic Proposal
 
 1. Is the encoded barcode data **valid JSON**?  If not, parsing fails.
 
-2. Are there valid values for **JSONSCAN**, **type**, and **content** (or **content-url**)?  If not, parsing fails.
+2. Are there valid values for **JSONSCAN**, **type**, and **content**/**content-url**/**src-url**?  If not, parsing fails.
 
 3. Some level of sanity check should be made on *JSONSCAN version number* and the format -- does the application support this version, etc.
 
@@ -73,15 +73,36 @@ Parsing Logic Proposal
 
 1. Perhaps some types might be "inherit" from other types.  A "photo" might be considered a more specific version of "image", etc.
 
-2. Can both _content_ and _content-url_ be presented?  If so, which is favorable? If connectivity fails, fall back to local?  Use local as a "preview" until remote content is retrieved?
+2. Can both _content_ and _content-url_ be present simultaneously?  If so, which is favorable? If connectivity fails, fall back to local?  Use local as a preview until remote content is retrieved?
 
 3. In the case of _src-url_, will src-url "chaining" be allowed (fetched json contains another src-url)?  Should there be domain restrictions?  etc!
 
 4. Security, security, security.
 
 
-Examples
---------
+Example Data
+------------
 
-(links to actual json files go here)
+* examples/[image.json](https://raw.githubusercontent.com/naknomum/json-scan/master/examples/image.json) - image (retrieved via URL)
+![image](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/image.png)
+
+* examples/[event.json](https://raw.githubusercontent.com/naknomum/json-scan/master/examples/event.json) - simple event with embedded iCalendar content (will work offline)
+![event](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/event.png)
+
+* examples/[event-contenturl.json](https://raw.githubusercontent.com/naknomum/json-scan/master/examples/event-contenturl.json) - same event, JSON-scan content retrieved via URL
+![event-contenturl](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/event-contenturl.png)
+
+* examples/[github-social.json](https://raw.githubusercontent.com/naknomum/json-scan/master/examples/github-social.json) - "social" info GitHub (facebook, g+, url, etc.)
+![github-social](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/github-social.png)
+
+* examples/[github-social-srcurl.json](https://raw.githubusercontent.com/naknomum/json-scan/master/examples/github-social-srcurl.json) - as above, but content retreived via URL
+![github-social-srcurl](https://raw.githubusercontent.com/naknomum/json-scan/master/images/qr/github-social-srcurl.png)
+
+
+Example Software
+----------------
+
+* **tools/qr/bin_to_qr.pl** - tiny perl utility which takes arbitrary data on stdin and creates QR code on stdout
+
+* **tools/qr/json_to_qr.pl** - perl utility which takes JSON on stdin and creates QR code on stdout
 
