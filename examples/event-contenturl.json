@@ -1,4 +1,4 @@
-{ "type": "event",
+{
 	"name":"Example Party",
 	"description":"A random party!",
 	"content-type": "text/calendar",

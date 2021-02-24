@@ -1,5 +1,6 @@
-{ "type": "event",
+{
 	"name":"Example Party",
+	"content-type": "text/calendar",
 	"description":"A random party!",
 	"content": {
 		"_file":"examples/event.ical",

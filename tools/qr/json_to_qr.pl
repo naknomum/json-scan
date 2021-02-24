@@ -15,6 +15,7 @@ use Data::Dumper;
 #use Encode::BOCU1;
 use Compress::LZF;
 use MIME::Base64;
+use GD::Image;
 
 $version = "0.1";
 

@@ -1,6 +1,6 @@
 {
-	"type":"image",
+	"content-type":"image/jpeg",
 	"name":"The globe of Saturn",
-	"url":"http://www.jpl.nasa.gov/spaceimages/details.php?id=PIA17175",
+	"description":"http://www.jpl.nasa.gov/spaceimages/details.php?id=PIA17175",
 	"content-url":"http://photojournal.jpl.nasa.gov/jpeg/PIA17175.jpg"
 }
